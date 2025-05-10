@@ -1,0 +1,48 @@
+{
+    //
+    // Set correct python path to venv's one
+    //
+    "python.defaultInterpreterPath": "src/geospatial/.venv/bin/python",
+    //
+    // Very optional: type checking. Remove the line if your project doesn't really use or respect
+    // type hints. You should give it a try, though. They're great.
+    //
+    "python.analysis.typeCheckingMode": "strict",
+    //
+    // Hide .venv from explorer and searchbar
+    //
+    "files.watcherExclude": {
+      "**/.venv/**": true,
+      "**/.ruff_cache/**": true
+    },
+    "files.exclude": {
+      "**/.venv/": true,
+      "**/.ruff_cache/": true
+    },
+    "search.exclude": {
+      "**/.venv/": true,
+      "**/.ruff_cache/": true
+    },
+    //
+    // Linting and formatting
+    //
+    // Configured following https://github.com/astral-sh/ruff-vscode?tab=readme-ov-file#configuring-vs-code
+    // guidelines.
+    "[python]": {
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports.ruff": "explicit"
+      },
+      "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "editor.rulers": [
+      100 // if changing line length, also do it in pyproject.toml's [tool.ruff] section
+    ],
+    "editor.wordWrapColumn": 100,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    // Jupyter
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "jupyter.interactiveWindow.textEditor.executeSelection": true,
+    "python.analysis.autoImportCompletions": true,
+  }

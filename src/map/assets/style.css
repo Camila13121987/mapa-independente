@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+}
+html,
+body,
+#map {
+  height: 100%;
+}
+.popup-content {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.popup-content h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Nunito', sans-serif;
+}
+.popup-content p {
+  margin: 0;
+}
+.maplibregl-popup-content {
+  font-family: 'Noto Sans', sans-serif;
+}
+#timelapse {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  background: rgba(242, 242, 242, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+#timelapseRange {
+  width: 100%;
+  margin-bottom: 10px;
+  accent-color: #24EBF9;
+}
+#play-pause {
+  margin: 0 5px;
+  cursor: pointer;
+  background: #24EBF9;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-family: 'Nunito', sans-serif;
+}
+.timeline-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+/* Removed .month-labels and .month-label as they are no longer needed for a yearly slider */
+#timelapseDate {
+  color: #333;
+  font-weight: bold;
+  margin-left: 10px;
+  font-family: 'Nunito', sans-serif;
+}
+.maplibregl-ctrl-attrib {
+  font-family: 'Noto Sans', sans-serif;
+}
+.maplibregl-ctrl button {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) { /* Tablet and smaller */
+  #timelapse {
+    width: 90%;
+    bottom: 10px;
+    padding: 8px;
+  }
+
+  #timelapseRange {
+    margin-bottom: 8px;
+  }
+
+  #play-pause {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  #timelapseDate {
+    font-size: 14px;
+  }
+
+  .popup-content {
+    font-size: 11px;
+    max-width: 280px; /* Adjust max-width for popups on tablets */
+  }
+
+  .popup-content h3 {
+    font-size: 14px;
+  }
+
+  .popup-content iframe {
+    height: 150px; /* Adjust iframe height in popups */
+  }
+
+  .maplibregl-ctrl-top-right {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) { /* Mobile */
+  #timelapse {
+    width: 95%;
+    bottom: 5px;
+    padding: 5px;
+    left: 2.5%;
+    transform: translateX(0);
+  }
+
+  .timeline-controls {
+    flex-direction: column; /* Stack controls vertically */
+  }
+
+  #play-pause {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #timelapseDate {
+    margin-left: 0;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  .popup-content {
+    max-width: calc(100vw - 40px); /* Popups take most of screen width */
+    font-size: 10px;
+  }
+
+  .popup-content h3 {
+    font-size: 13px;
+  }
+
+  .popup-content iframe {
+    height: 120px; /* Further adjust iframe height */
+  }
+
+  .maplibregl-popup-close-button {
+    font-size: 18px;
+    padding: 2px 5px;
+  }
+}
