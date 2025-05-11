@@ -132,6 +132,26 @@ map.on("load", async () => {
     if (map.getSource("mapa_independente")) {
       map.getSource("mapa_independente").setData(filteredData);
     }
+
+    // Fit map to the bounds of the currently displayed features
+    if (filteredData.features.length > 0) {
+      const newBounds = getBoundingBox(filteredData);
+      // Ensure bounds are valid before attempting to fit
+      if (newBounds &&
+          newBounds[0][0] !== undefined && newBounds[0][1] !== undefined &&
+          newBounds[1][0] !== undefined && newBounds[1][1] !== undefined) {
+        map.fitBounds(newBounds, {
+          padding: 50,
+          maxZoom: 16, // Prevent over-zooming on a single point or very close points
+          duration: 500 // Smooth transition
+        });
+      }
+    } else {
+      // Optional: Handle the case where no features are visible for the selected year.
+      // For example, you could fly to a default extent:
+      // map.flyTo({ center: [defaultLongitude, defaultLatitude], zoom: defaultZoom });
+      // For now, it will keep the current view if no points are shown.
+    }
   }
 
   // Play/pause timeline animation
