@@ -39,7 +39,7 @@ map.addControl(new maplibregl.NavigationControl({
 // Animation variables
 let isPlaying = false;
 let timer;
-const frameDuration = 1000; // 1 second per year for timelapse animation
+const frameDuration = 500;
 
 const playIconSVG = '<svg viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%"><path d="M8 5v14l11-7z"/></svg>';
 const pauseIconSVG = '<svg viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
