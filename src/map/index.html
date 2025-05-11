@@ -4,7 +4,7 @@
     <title>Mapa Independente</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Explore um mapa interativo de espaços independentes. Visualize pontos de um GeoJSON e filtre por ano." />
+    <meta name="description" content="Explore um mapa interativo de espaços independentes." />
     <meta name="keywords" content="mapa, geojson, espaços independentes, visualização de dados, mapa interativo" />
     <meta name="author" content="Camila Grimaldi" />
 
@@ -12,15 +12,24 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://guzmanlopez.github.io/mapa-independente/" />
     <meta property="og:title" content="Mapa Independente" />
-    <meta property="og:description" content="Explore um mapa interativo de espaços independentes. Visualize pontos de um GeoJSON e filtre por ano." />
+    <meta property="og:description" content="Explore um mapa interativo de espaços independentes." />
     <meta property="og:image" content="https://guzmanlopez.github.io/mapa-independente/assets/map-preview.png" />
+    <meta property="og:image:alt" content="Preview of the Mapa Independente showing interactive points on a map" />
+    <meta property="og:site_name" content="Mapa Independente" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://guzmanlopez.github.io/mapa-independente/" />
     <meta property="twitter:title" content="Mapa Independente" />
-    <meta property="twitter:description" content="Explore um mapa interativo de espaços independentes. Visualize pontos de um GeoJSON e filtre por ano." />
+    <meta property="twitter:description" content="Explore um mapa interativo de espaços independentes." />
     <meta property="twitter:image" content="https://guzmanlopez.github.io/mapa-independente/assets/map-preview.png" />
+    <meta property="twitter:image:alt" content="Preview of the Mapa Independente showing interactive points on a map" />
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Mapa Independente">
+    <meta itemprop="description" content="Explore um mapa interativo de espaços independentes.">
+    <meta itemprop="image" content="https://guzmanlopez.github.io/mapa-independente/assets/map-preview.png">
 
     <link
       rel="stylesheet"
@@ -33,15 +42,9 @@
   <body>
     <div id="map"></div>
     <div id="slider-container" style="text-align: center; padding: 10px;">
+        <button id="play-pause" style="margin-right: 10px;"></button>
         <label for="yearSlider">Year: <span id="selectedYearLabel"></span></label>
-        <input type="range" id="yearSlider" style="width: 80%; max-width: 500px;">
-    </div>
-    <div id="timelapse">
-      <input type="range" id="timelapseRange" min="0" max="36" value="36" step="1" />
-      <div class="timeline-controls">
-        <button id="play-pause"></button>
-        <div id="timelapseDate"></div>
-      </div>
+        <input type="range" id="yearSlider" style="width: 70%; max-width: 450px;">
     </div>
     <script src="assets/script.js"></script>
   </body>

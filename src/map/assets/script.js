@@ -143,7 +143,7 @@ map.on("load", async () => {
 
     if (isPlaying) {
       timer = setInterval(() => {
-        let currentValue = parseInt(timelapseRange.value);
+        let currentValue = parseInt(yearSlider.value); // Changed from timelapseRange.value
         if (currentValue >= maxDataYear) {
           currentValue = minDataYear;
         } else {

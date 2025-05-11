@@ -25,6 +25,41 @@ body,
 .maplibregl-popup-content {
   font-family: 'Noto Sans', sans-serif;
 }
+
+#slider-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px; /* Added max-width for better control on large screens */
+  background: rgba(242, 242, 242, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex; /* Added for aligning items */
+  align-items: center; /* Added for aligning items */
+  justify-content: center; /* Added for aligning items */
+}
+
+/* Styles for elements within slider-container */
+#slider-container label {
+  margin: 0 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+#slider-container input[type="range"] {
+  flex-grow: 1; /* Allow slider to take available space */
+  max-width: 450px; /* Retain max-width from inline style */
+  accent-color: #0AB7C7; /* Style from old timelapseRange */
+}
+
+/* Remove or comment out old #timelapse styles if no longer needed */
+/*
 #timelapse {
   position: absolute;
   bottom: 20px;
@@ -39,15 +74,18 @@ body,
   font-family: 'Nunito', sans-serif;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
 #timelapseRange {
   width: 100%;
   margin-bottom: 10px;
-  accent-color: #24EBF9;
+  accent-color: #0AB7C7;
 }
+*/
+
 #play-pause {
   margin: 0 5px;
   cursor: pointer;
-  background: #24EBF9;
+  background: #0AB7C7;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -59,6 +97,7 @@ body,
   justify-content: center;
   font-size: 18px;
   font-family: 'Nunito', sans-serif;
+  margin-right: 10px; /* Ensure spacing if it's next to the label/slider */
 }
 .timeline-controls {
   display: flex;
@@ -82,14 +121,20 @@ body,
 
 /* Responsive Design */
 @media (max-width: 768px) { /* Tablet and smaller */
-  #timelapse {
+  #slider-container { /* Adjusted from #timelapse */
     width: 90%;
     bottom: 10px;
     padding: 8px;
+    flex-direction: column; /* Stack items vertically on smaller screens */
   }
 
-  #timelapseRange {
-    margin-bottom: 8px;
+  #slider-container input[type="range"] {
+    width: 100%; /* Full width in column layout */
+    margin-top: 8px; /* Add space above slider when stacked */
+  }
+
+  #slider-container label {
+    margin-bottom: 5px; /* Add space below label when stacked */
   }
 
   #play-pause {
@@ -122,7 +167,7 @@ body,
 }
 
 @media (max-width: 480px) { /* Mobile */
-  #timelapse {
+  #slider-container {
     width: 95%;
     bottom: 5px;
     padding: 5px;
