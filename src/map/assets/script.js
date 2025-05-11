@@ -39,7 +39,7 @@ map.addControl(new maplibregl.NavigationControl({
 // Animation variables
 let isPlaying = false;
 let timer;
-const frameDuration = 500;
+const frameDuration = 750;
 
 const playIconSVG = '<svg viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%"><path d="M8 5v14l11-7z"/></svg>';
 const pauseIconSVG = '<svg viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
@@ -141,9 +141,9 @@ map.on("load", async () => {
           newBounds[0][0] !== undefined && newBounds[0][1] !== undefined &&
           newBounds[1][0] !== undefined && newBounds[1][1] !== undefined) {
         map.fitBounds(newBounds, {
-          padding: 50,
-          maxZoom: 16, // Prevent over-zooming on a single point or very close points
-          duration: 500 // Smooth transition
+          padding: 75,
+          maxZoom: 13, // Prevent over-zooming on a single point or very close points
+          duration: 1000 // Smooth transition
         });
       }
     } else {
