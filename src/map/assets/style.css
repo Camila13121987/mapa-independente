@@ -55,7 +55,7 @@ body,
 #slider-container input[type="range"] {
   flex-grow: 1; /* Allow slider to take available space */
   max-width: 450px; /* Retain max-width from inline style */
-  accent-color: #0AB7C7; /* Style from old timelapseRange */
+  accent-color: #00C281; /* Style from old timelapseRange */
 }
 
 /* Remove or comment out old #timelapse styles if no longer needed */
@@ -78,14 +78,14 @@ body,
 #timelapseRange {
   width: 100%;
   margin-bottom: 10px;
-  accent-color: #0AB7C7;
+  accent-color: #00C281;
 }
 */
 
 #play-pause {
   margin: 0 5px;
   cursor: pointer;
-  background: #0AB7C7;
+  background: #00C281;
   color: white;
   border: none;
   padding: 5px 10px;
