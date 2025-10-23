@@ -152,16 +152,40 @@ map.on("load", async () => {
 
     // Fit map to the bounds of the currently displayed features
     if (filteredData.features.length > 0) {
-      const newBounds = getBoundingBox(filteredData);
-      // Ensure bounds are valid before attempting to fit
-      if (newBounds &&
-          newBounds[0][0] !== undefined && newBounds[0][1] !== undefined &&
-          newBounds[1][0] !== undefined && newBounds[1][1] !== undefined) {
-        map.fitBounds(newBounds, {
-          padding: 75,
-          maxZoom: 13, // Prevent over-zooming on a single point or very close points
-          duration: 1000 // Smooth transition
+      // If the selected year is after 2020, prefer zooming to points around Lisbon
+      if (selectedYear > 2020) {
+        // Lisbon approximate bbox: [minLng, minLat, maxLng, maxLat]
+        const lisbonBbox = [-9.30, 38.65, -9.05, 38.78];
+        const lisbonFeatures = filteredData.features.filter(f => {
+          const coords = f.geometry && f.geometry.coordinates;
+          return coords && coords[0] >= lisbonBbox[0] && coords[0] <= lisbonBbox[2] && coords[1] >= lisbonBbox[1] && coords[1] <= lisbonBbox[3];
         });
+
+        const targetFeatures = lisbonFeatures.length > 0 ? lisbonFeatures : filteredData.features;
+        const newBounds = getBoundingBox({ ...filteredData, features: targetFeatures });
+
+        // Ensure bounds are valid before attempting to fit
+        if (newBounds &&
+            newBounds[0][0] !== undefined && newBounds[0][1] !== undefined &&
+            newBounds[1][0] !== undefined && newBounds[1][1] !== undefined) {
+          map.fitBounds(newBounds, {
+            padding: 75,
+            maxZoom: 13,
+            duration: 1000
+          });
+        }
+      } else {
+        const newBounds = getBoundingBox(filteredData);
+        // Ensure bounds are valid before attempting to fit
+        if (newBounds &&
+            newBounds[0][0] !== undefined && newBounds[0][1] !== undefined &&
+            newBounds[1][0] !== undefined && newBounds[1][1] !== undefined) {
+          map.fitBounds(newBounds, {
+            padding: 75,
+            maxZoom: 13, // Prevent over-zooming on a single point or very close points
+            duration: 1000 // Smooth transition
+          });
+        }
       }
     } else {
       // Optional: Handle the case where no features are visible for the selected year.
