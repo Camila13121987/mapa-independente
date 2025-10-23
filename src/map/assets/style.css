@@ -40,9 +40,10 @@ body,
   z-index: 1;
   font-family: 'Nunito', sans-serif;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: flex; /* Added for aligning items */
-  align-items: center; /* Added for aligning items */
-  justify-content: center; /* Added for aligning items */
+  display: flex; /* Layout: button, label, slider */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  gap: 10px; /* Space between controls */
 }
 
 /* Styles for elements within slider-container */
@@ -97,7 +98,7 @@ body,
   justify-content: center;
   font-size: 18px;
   font-family: 'Nunito', sans-serif;
-  margin-right: 10px; /* Ensure spacing if it's next to the label/slider */
+  /* ensure spacing handled by #slider-container gap */
 }
 .timeline-controls {
   display: flex;
@@ -134,6 +135,7 @@ body,
     bottom: 10px;
     padding: 8px;
     flex-direction: column; /* Stack items vertically on smaller screens */
+    gap: 8px;
   }
 
   #slider-container input[type="range"] {
@@ -181,6 +183,7 @@ body,
     padding: 5px;
     left: 2.5%;
     transform: translateX(0);
+    gap: 6px;
   }
 
   .timeline-controls {
