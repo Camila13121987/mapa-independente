@@ -119,6 +119,14 @@ body,
   font-family: 'Noto Sans', sans-serif;
 }
 
+/* Force attribution to be collapsed by default */
+.maplibregl-ctrl-attrib:not([open]) .maplibregl-ctrl-attrib-inner {
+  display: none !important;
+}
+.maplibregl-ctrl-attrib {
+  pointer-events: auto;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) { /* Tablet and smaller */
   #slider-container { /* Adjusted from #timelapse */
