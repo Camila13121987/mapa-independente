@@ -1,5 +1,5 @@
 const source =
-  "https://api.maptiler.com/maps/0195cab0-65de-7e42-9cdf-3c0ae2936085/style.json?key=wJI2gT4QofYYcPJuRuQp";
+  "https://api.maptiler.com/maps/019a11e8-e36c-7e39-8546-514443a49a4b/style.json?key=wxb6rUQsLT17xcN7Y3Fo";
 
 function getBoundingBox(geojson) {
   let minLng, maxLng, minLat, maxLat;
