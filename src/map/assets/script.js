@@ -1,4 +1,3 @@
-// "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json";
 const source =
   "https://api.maptiler.com/maps/0195cab0-65de-7e42-9cdf-3c0ae2936085/style.json?key=wJI2gT4QofYYcPJuRuQp";
 
@@ -26,6 +25,7 @@ function getBoundingBox(geojson) {
 const map = new maplibregl.Map({
   container: "map",
   style: source,
+  attributionControl: false
 });
 
 // Add zoom and rotation controls to the map.
@@ -35,6 +35,23 @@ map.addControl(new maplibregl.NavigationControl({
   showZoom: true,
   showCompass: true
 }));
+
+// Add attribution control with collapsed option
+map.addControl(new maplibregl.AttributionControl({
+  compact: true,
+}));
+
+// Force attribution to be collapsed on load
+map.on('load', () => {
+  // Find and collapse the attribution control
+  setTimeout(() => {
+    const attrEl = document.querySelector('.maplibregl-ctrl-attrib');
+    if (attrEl && attrEl.hasAttribute('open')) {
+      attrEl.removeAttribute('open');
+      attrEl.classList.remove('maplibregl-compact-show');
+    }
+  }, 100);
+});
 
 // Animation variables
 let isPlaying = false;
